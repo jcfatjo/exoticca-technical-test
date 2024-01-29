@@ -16,7 +16,7 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        "types": ["node"],
+        "types": ["node", "@types/jest"],
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
 
