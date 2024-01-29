@@ -1,6 +1,6 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React, { PropsWithChildren } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React, { type PropsWithChildren } from "react";
 
 const queryClient = new QueryClient();
 
