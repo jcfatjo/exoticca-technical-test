@@ -1,21 +1,53 @@
 import React from "react";
 
 import ProductCard from "@/components/ProductCard";
+import { useHome } from "@/pages/Home.ts";
+import { type Product } from "@/types/products.types.ts";
 
 const Home: React.FC = () => {
-    const product = {
-        title: "Cape, Kruger, Victoria Falls & Chobe N.P.",
-        image: "https://static-us.exoticca.com/img/p/9947/222233.jpg",
-        map: "https://uploads.exoticca.com/p/9947/25916/i/ism_horizontal_aspect_ratio_3_29.jpg",
-        priceDetail: {
-            pricingPercentage: 40,
-            oldPrice: "$6,349",
-            fromPrice: "$3,799",
-            pricePerNight: "$271"
-        }
-    };
+    // const { products } = useHome();
+    const { featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
 
-    return <ProductCard {...product} />;
+    return (
+        <>
+            {featuredMonoProducts.map((product: Product, index: number) => (
+                <ProductCard
+                    key={`featuredMonoProduct-${index}`}
+                    title={product.title}
+                    image={product.image}
+                    map={product.mapImage}
+                    priceDetail={product.priceDetail}
+                />
+            ))}
+            {featuredMultiProducts.map((product: Product, index: number) => (
+                <ProductCard
+                    key={`featuredMultiProduct-${index}`}
+                    title={product.title}
+                    image={product.image}
+                    map={product.mapImage}
+                    priceDetail={product.priceDetail}
+                />
+            ))}
+            {monoProducts.map((product: Product, index: number) => (
+                <ProductCard
+                    key={`monoProduct-${index}`}
+                    title={product.title}
+                    image={product.image}
+                    map={product.mapImage}
+                    priceDetail={product.priceDetail}
+                />
+            ))}
+            {multiProducts.map((product: Product, index: number) => (
+                <ProductCard
+                    key={`multiProduct-${index}`}
+                    title={product.title}
+                    image={product.image}
+                    map={product.mapImage}
+                    priceDetail={product.priceDetail}
+                />
+            ))}
+        </>
+    );
 };
 
 export default Home;

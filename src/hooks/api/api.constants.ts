@@ -1,3 +1,3 @@
 export const QueryKeys = {
-    PRODUCTS: "products"
+    SEARCH_RESULT: "searchResult"
 };
