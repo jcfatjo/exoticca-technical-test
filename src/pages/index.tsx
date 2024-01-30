@@ -5,7 +5,6 @@ import { useHome } from "@/pages/Home.ts";
 import { type Product } from "@/types/products.types.ts";
 
 const Home: React.FC = () => {
-    // const { products } = useHome();
     const { featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
 
     return (
