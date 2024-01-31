@@ -47,5 +47,6 @@ export type SearchResultDestination = {
 };
 
 export type SearchResultModel = {
+    name: string;
     destinations: SearchResultDestination;
 };

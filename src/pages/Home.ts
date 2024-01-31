@@ -8,6 +8,7 @@ export const useHome = () => {
     const { searchResult, isLoading, isError } = useGetSearchResult();
     const { getProductGroups } = useProducts();
 
+    const [placeName, setPlaceName] = useState("");
     const [featuredMonoProducts, setFeaturedMonoProducts] = useState<Product[]>([]);
     const [featuredMultiProducts, setFeaturedMultiProducts] = useState<Product[]>([]);
     const [monoProducts, setMonoProducts] = useState<Product[]>([]);
@@ -18,9 +19,10 @@ export const useHome = () => {
             return;
         }
 
-        const { destinations } = searchResult;
+        const { name, destinations } = searchResult;
         const { featuredMono, featuredMulti, mono, multi } = getProductGroups(destinations);
 
+        setPlaceName(name);
         setFeaturedMonoProducts(featuredMono);
         setFeaturedMultiProducts(featuredMulti);
         setMonoProducts(mono);
@@ -28,6 +30,7 @@ export const useHome = () => {
     }, [searchResult]);
 
     return {
+        placeName,
         featuredMonoProducts,
         featuredMultiProducts,
         monoProducts,

@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const { imgSrc, handleImageChange } = useProductCard(image);
 
     return (
-        <Card className="overflow-hidden" direction={["column", null, null, "row"]} variant="outline">
+        <Card className="overflow-hidden rounded-3xl mb-8" direction={["column", null, null, "row"]} variant="outline">
             <Image
                 objectFit="cover"
                 maxW={["100%", null, null, "50%"]}
