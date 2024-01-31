@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <Image
                 objectFit="cover"
                 maxW={{ base: "100%", lg: "50%" }}
-                maxH={{ base: 150, lg: "100%" }}
+                maxH={{ base: "150px", lg: "100%" }}
                 src={imgSrc}
                 alt={title}
                 onMouseEnter={() => {
