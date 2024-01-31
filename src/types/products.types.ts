@@ -1,6 +1,5 @@
 export type ProductHighlight = {
     title: string;
-    image: string;
 };
 
 export type ProductPriceDetail = {
