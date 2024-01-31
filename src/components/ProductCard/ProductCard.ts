@@ -1,18 +1,45 @@
-import { useState } from "react";
-
+import { type ProductDataProps } from "@/components/ProductData/ProductData.ts";
+import { type ProductImageProps } from "@/components/ProductImage/ProductImage.ts";
 import { type Product } from "@/types/product.types.ts";
 
 export type ProductCardProps = Product;
 
-export const useProductCard = (image: string) => {
-    const [imgSrc, setImgSrc] = useState(image);
+type ProductProps = {
+    productImage: ProductImageProps;
+    productData: ProductDataProps;
+};
 
-    const handleImageChange = (src: string): void => {
-        setImgSrc(src);
-    };
-
+export const useProductCard = ({
+    image,
+    mapImage,
+    title,
+    priceDetail,
+    url,
+    destination,
+    days,
+    highlights,
+    extras,
+    isGroupTours,
+    isSoloTraveller,
+    tags
+}: ProductCardProps): ProductProps => {
     return {
-        imgSrc,
-        handleImageChange
+        productImage: {
+            imageSrc: image,
+            mapImageSrc: mapImage,
+            alt: title
+        },
+        productData: {
+            priceDetail,
+            url,
+            destination,
+            days,
+            title,
+            highlights,
+            extras,
+            isGroupTours,
+            isSoloTraveller,
+            tags
+        }
     };
 };

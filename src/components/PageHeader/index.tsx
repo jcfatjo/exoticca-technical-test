@@ -13,11 +13,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({ onSearch }: PageHeaderProps) =>
     return (
         <Flex
             as="header"
-            className="items-center justify-center fixed top-0 z-10 px-2 w-full bg-black"
+            className="items-center justify-center fixed top-0 z-50 px-2 w-full bg-black"
             py={[4, null, 3]}
             h={["60px", null, "70px"]}>
             <Link className="h-full" href={`${EXOTICCA_URL_PREFIX}${EXOTICCA_URL_COUNTRY_SUFFIX}`} target="_blank">
-                <Image className="h-full" src={EXOTICCA_LOGO_URL} display={{ base: isShowSearchbar ? "none" : "block" }} />
+                <Image className="h-full" src={EXOTICCA_LOGO_URL} display={{ base: isShowSearchbar ? "none" : "block" }} alt="Exoticca" />
             </Link>
             <HeaderSearchbar isShown={isShowSearchbar} onSearch={onSearch} />
         </Flex>

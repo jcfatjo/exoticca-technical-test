@@ -30,14 +30,14 @@ export type ProductTag = {
 };
 
 export type Product = {
+    image: string;
+    mapImage: string;
     title: string;
+    priceDetail: ProductPriceDetail;
     url: string;
     destination: string;
     days: number;
-    image: string;
-    mapImage: string;
     highlights: ProductHighlight[];
-    priceDetail: ProductPriceDetail;
     extras: ProductExtra[];
     isGroupTours: boolean;
     isSoloTraveller: boolean;
