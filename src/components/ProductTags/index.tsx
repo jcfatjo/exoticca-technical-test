@@ -9,7 +9,7 @@ import { type ProductTag } from "@/types/product.types.ts";
 const ProductTags: React.FC<ProductTagsProps> = ({ isGroupTours, isSoloTraveller, tags }: ProductTagsProps) => {
     return (
         <Flex className="h-full items-end">
-            <Flex className="flex-wrap items-end justify-start gap-1 overflow-hidden w-full h-fit">
+            <Flex className="flex-wrap items-end justify-start gap-1 overflow-hidden w-full h-[52px]">
                 {isGroupTours && (
                     <Tooltip hasArrow label={GROUP_TOURS_TOOLTIP_LABEL_TEXT} bg={"gray.200"} color={"black"}>
                         <Tag className="rounded-full w-fit h-fit uppercase hover:cursor-default" variant="outline">

@@ -6,7 +6,7 @@ import { type ProductButtonProps } from "@/components/ProductButton/ProductButto
 
 const ProductButton: React.FC<ProductButtonProps> = ({ url }: ProductButtonProps) => {
     return (
-        <Flex className="w-full h-full" alignItems={[null, "center", "end"]} justifyContent={[null, "center", "end"]}>
+        <Flex className="w-full h-full" alignItems={["center", null, "end"]} justifyContent={["center", null, "end"]}>
             <Button
                 as="a"
                 className="rounded-full bg-gray-900 text-white hover:bg-gray-700 active:bg-gray-500 px-6 py-7 w-fit font-normal"

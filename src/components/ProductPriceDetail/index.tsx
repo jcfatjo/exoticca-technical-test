@@ -1,9 +1,17 @@
 import { Box, Tag, Text } from "@chakra-ui/react";
+import Link from "next/link";
 import React from "react";
 
-import { type PriceDetailProps } from "@/components/PriceDetail/PriceDetail.ts";
+import { EXOTICCA_URL_PREFIX } from "@/app.constants.ts";
+import { type ProductPriceDetailProps } from "@/components/ProductPriceDetail/ProductPriceDetail.ts";
 
-const PriceDetail: React.FC<PriceDetailProps> = ({ pricingPercentage, oldPrice, fromPrice, pricePerNight }: PriceDetailProps) => {
+const ProductPriceDetail: React.FC<ProductPriceDetailProps> = ({
+    pricingPercentage,
+    oldPrice,
+    fromPrice,
+    pricePerNight,
+    url
+}: ProductPriceDetailProps) => {
     return (
         <Box
             className="flex gap-2"
@@ -15,13 +23,15 @@ const PriceDetail: React.FC<PriceDetailProps> = ({ pricingPercentage, oldPrice, 
                 <Text className="text-xs font-normal text-gray-500">
                     From <del>{oldPrice}</del>
                 </Text>
-                <Text className="font-bold leading-6" fontSize={["large", null, "x-large"]}>
-                    {fromPrice}
-                </Text>
+                <Link href={`${EXOTICCA_URL_PREFIX}${url}`} target="_blank">
+                    <Text className="font-bold leading-6" fontSize={["large", null, "x-large"]}>
+                        {fromPrice}
+                    </Text>
+                </Link>
                 <Text className="text-xs font-normal text-gray-500">Per night: {pricePerNight}</Text>
             </Box>
         </Box>
     );
 };
 
-export default PriceDetail;
+export default ProductPriceDetail;

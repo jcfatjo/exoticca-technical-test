@@ -8,7 +8,7 @@ import ProductHighlights from "@/components/ProductHighlights";
 import ProductTags from "@/components/ProductTags";
 import ProductTop from "@/components/ProductTop";
 
-import PriceDetail from "../PriceDetail";
+import ProductPriceDetail from "../ProductPriceDetail";
 
 const ProductCard: React.FC<ProductCardProps> = ({
     destination,
@@ -27,11 +27,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const { imgSrc, handleImageChange } = useProductCard(image);
 
     return (
-        <Card className="overflow-hidden rounded-3xl mb-8" direction={["column", null, null, "row"]} variant="outline">
+        <Card className="overflow-hidden rounded-3xl mb-8" direction={{ base: "column", lg: "row" }} variant="outline">
             <Image
                 objectFit="cover"
-                maxW={["100%", null, null, "50%"]}
-                maxH={[150, null, null, "100%"]}
+                maxW={{ base: "100%", lg: "50%" }}
+                maxH={{ base: 150, lg: "100%" }}
                 src={imgSrc}
                 alt={title}
                 onMouseEnter={() => {
@@ -48,8 +48,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     columnGap={[0, null, 2]}
                     autoRows={"auto"}
                     templateColumns={["1fr", null, "repeat(3, minmax(0, 1fr))"]}>
-                    <GridItem area={"span 1/1/auto/-1"} gridColumnStart={[null, null, 3]} gridRow={[null, null, "span 2"]}>
-                        <PriceDetail {...priceDetail} />
+                    <GridItem area={"span 1/1/auto/-1"} gridColumnStart={{ md: 3 }} gridRow={{ md: "span 2" }}>
+                        <ProductPriceDetail {...priceDetail} url={url} />
                     </GridItem>
                     <GridItem gridColumn={["span 1", null, "span 2"]} gridRowStart={[2, null, 1]}>
                         <ProductTop destination={destination} days={days} title={title} url={url} />
@@ -60,10 +60,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <GridItem area={"span 1/2/auto/3"}>
                         <ProductExtras extras={extras} />
                     </GridItem>
-                    <GridItem gridColumn={"1/4"} gridColumnEnd={[null, null, 3]}>
+                    <GridItem gridColumn={"1/4"} gridColumnEnd={{ md: 3 }}>
                         <ProductTags isGroupTours={isGroupTours} isSoloTraveller={isSoloTraveller} tags={tags} />
                     </GridItem>
-                    <GridItem gridColumn={"1 / -1"} gridColumnStart={[null, null, 3]}>
+                    <GridItem gridColumn={"1 / -1"} gridColumnStart={{ md: 3 }} mt={[3, null, 0]}>
                         <ProductButton url={url} />
                     </GridItem>
                 </Grid>

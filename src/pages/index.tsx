@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
 
     return (
-        <Container maxW={["600px", null, null, "1200px"]} px={[4, 4, 4, 16]}>
+        <Container maxW={{ base: 600, lg: 1200 }} px={{ base: 4, lg: 6 }}>
             <ProductList title={`${FeaturedMonoMarketTitle.PREFIX} ${placeName}`} products={featuredMonoProducts} />
             <ProductList
                 title={`${FeaturedMultiMarketTitle.PREFIX} ${placeName} ${FeaturedMultiMarketTitle.SUFFIX}`}
