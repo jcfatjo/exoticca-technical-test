@@ -15,7 +15,7 @@ export const useHome = () => {
     const [multiProducts, setMultiProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        if (searchResult == null || typeof searchResult === "undefined") {
+        if (!searchResult) {
             return;
         }
 

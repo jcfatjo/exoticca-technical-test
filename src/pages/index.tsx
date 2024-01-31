@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import React from "react";
 
 import PageHeader from "@/components/PageHeader";
@@ -10,9 +10,9 @@ const Home: React.FC = () => {
     const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
 
     return (
-        <Box as="main">
+        <>
             <PageHeader />
-            <Container maxW={{ base: "600px", lg: "1200px" }} px={{ base: 4, lg: 6 }} pt={["60px", null, "70px"]}>
+            <Container as="main" maxW={{ base: "600px", lg: "1200px" }} px={{ base: 4, lg: 6 }} pt={["60px", null, "70px"]}>
                 <ProductList title={`${FeaturedMonoMarketTitle.PREFIX} ${placeName}`} products={featuredMonoProducts} />
                 <ProductList
                     title={`${FeaturedMultiMarketTitle.PREFIX} ${placeName} ${FeaturedMultiMarketTitle.SUFFIX}`}
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
                 <ProductList title={`${MonoMarketTitle.PREFIX} ${placeName}`} products={monoProducts} />
                 <ProductList title={`${MultiMarketTitle.PREFIX} ${placeName}`} products={multiProducts} />
             </Container>
-        </Box>
+        </>
     );
 };
 

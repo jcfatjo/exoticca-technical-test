@@ -9,7 +9,7 @@ const ProductButton: React.FC<ProductButtonProps> = ({ url }: ProductButtonProps
         <Flex className="w-full h-full" alignItems={["center", null, "end"]} justifyContent={["center", null, "end"]}>
             <Button
                 as="a"
-                className="rounded-full bg-black text-white hover:bg-gray-800 active:bg-gray-600 px-6 py-7 w-fit font-normal"
+                className="rounded-full px-6 py-7 w-fit bg-black hover:bg-gray-800 active:bg-gray-600 text-white font-normal"
                 href={`${EXOTICCA_URL_PREFIX}${url}`}
                 target="_blank">
                 See trip
