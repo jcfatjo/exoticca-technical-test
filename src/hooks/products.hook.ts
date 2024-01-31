@@ -65,14 +65,11 @@ export const useProducts = () => {
     };
 
     const getProductHighlights = (destinationHighlights: DestinationHighlight[]): ProductHighlight[] => {
-        return destinationHighlights.map((destinationHighlight: DestinationHighlight): ProductHighlight => {
-            const { title, url } = destinationHighlight;
-
-            return {
-                title,
-                image: url
-            };
-        });
+        return destinationHighlights.map(
+            ({ title }: DestinationHighlight): ProductHighlight => ({
+                title
+            })
+        );
     };
 
     const getProductPriceDetail = (destinationPriceDetail: DestinationPriceDetail): ProductPriceDetail => {
