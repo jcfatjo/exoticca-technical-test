@@ -1,4 +1,4 @@
-import { List, ListIcon, ListItem } from "@chakra-ui/react";
+import { Hide, List, ListIcon, ListItem } from "@chakra-ui/react";
 import React from "react";
 
 import { type ProductExtrasProps, useProductExtras } from "@/components/ProductExtras/ProductExtras.tsx";
@@ -8,14 +8,16 @@ const ProductExtras: React.FC<ProductExtrasProps> = ({ extras }: ProductExtrasPr
     const { getIcon, getText } = useProductExtras();
 
     return (
-        <List>
-            {extras.map((extra: ProductExtra, index: number) => (
-                <ListItem key={`extra-${index}`} className="truncate text-sm capitalize">
-                    <ListIcon as={getIcon(extra)}></ListIcon>
-                    {getText(extra)}
-                </ListItem>
-            ))}
-        </List>
+        <Hide below="md">
+            <List>
+                {extras.map((extra: ProductExtra, index: number) => (
+                    <ListItem key={`extra-${index}`} className="truncate text-sm capitalize">
+                        <ListIcon as={getIcon(extra)}></ListIcon>
+                        {getText(extra)}
+                    </ListItem>
+                ))}
+            </List>
+        </Hide>
     );
 };
 

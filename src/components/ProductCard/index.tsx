@@ -42,7 +42,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 }}
             />
             <CardBody className="p-4">
-                <Grid className="h-full" autoRows={"auto"} gap={[3, null, 2]} templateColumns={["1fr", null, "repeat(3, minmax(0, 1fr))"]}>
+                <Grid
+                    className="h-full"
+                    rowGap={[3, null, 2]}
+                    columnGap={[0, null, 2]}
+                    autoRows={"auto"}
+                    templateColumns={["1fr", null, "repeat(3, minmax(0, 1fr))"]}>
                     <GridItem area={"span 1/1/auto/-1"} gridColumnStart={[null, null, 3]} gridRow={[null, null, "span 2"]}>
                         <PriceDetail {...priceDetail} />
                     </GridItem>
