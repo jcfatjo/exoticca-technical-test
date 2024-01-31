@@ -7,11 +7,11 @@ import { FeaturedMonoMarketTitle, FeaturedMultiMarketTitle, MonoMarketTitle, Mul
 import { useHome } from "@/pages/Home.ts";
 
 const Home: React.FC = () => {
-    const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
+    const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts, handleCountrySearch } = useHome();
 
     return (
         <>
-            <PageHeader />
+            <PageHeader onSearch={handleCountrySearch} />
             <Container as="main" maxW={{ base: "600px", lg: "1200px" }} px={{ base: 4, lg: 6 }} pt={["60px", null, "70px"]}>
                 <ProductList title={`${FeaturedMonoMarketTitle.PREFIX} ${placeName}`} products={featuredMonoProducts} />
                 <ProductList

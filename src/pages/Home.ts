@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { useGetSearchResult } from "@/hooks/api/api.hook.ts";
+import { useGetSearchResults } from "@/hooks/api/api.hook.ts";
 import { useProducts } from "@/hooks/products.hook.ts";
+import { DEFAULT_COUNTRY } from "@/pages/Home.constants.ts";
 import { type Product } from "@/types/product.types.ts";
 
 export const useHome = () => {
-    const { searchResult, isLoading, isError } = useGetSearchResult();
+    const [country, setCountry] = useState(DEFAULT_COUNTRY);
+
+    const { searchResults, isLoading, isError } = useGetSearchResults(country);
     const { getProductGroups } = useProducts();
 
     const [placeName, setPlaceName] = useState("");
@@ -15,11 +18,11 @@ export const useHome = () => {
     const [multiProducts, setMultiProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        if (!searchResult) {
+        if (!searchResults) {
             return;
         }
 
-        const { name, destinations } = searchResult;
+        const { name, destinations } = searchResults;
         const { featuredMono, featuredMulti, mono, multi } = getProductGroups(destinations);
 
         setPlaceName(name);
@@ -27,7 +30,11 @@ export const useHome = () => {
         setFeaturedMultiProducts(featuredMulti);
         setMonoProducts(mono);
         setMultiProducts(multi);
-    }, [searchResult]);
+    }, [searchResults]);
+
+    const handleCountrySearch = (searchText: string) => {
+        setCountry(searchText);
+    };
 
     return {
         placeName,
@@ -36,6 +43,7 @@ export const useHome = () => {
         monoProducts,
         multiProducts,
         isLoading,
-        isError
+        isError,
+        handleCountrySearch
     };
 };

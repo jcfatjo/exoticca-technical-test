@@ -5,9 +5,9 @@ import React from "react";
 import { EXOTICCA_URL_COUNTRY_SUFFIX, EXOTICCA_URL_PREFIX } from "@/app.constants.ts";
 import HeaderSearchbar from "@/components/HeaderSearchbar";
 import { EXOTICCA_LOGO_URL } from "@/components/PageHeader/PageHeader.constants.ts";
-import { usePageHeader } from "@/components/PageHeader/PageHeader.ts";
+import { type PageHeaderProps, usePageHeader } from "@/components/PageHeader/PageHeader.ts";
 
-const PageHeader: React.FC = () => {
+const PageHeader: React.FC<PageHeaderProps> = ({ onSearch }: PageHeaderProps) => {
     const { isShowSearchbar } = usePageHeader();
 
     return (
@@ -19,7 +19,7 @@ const PageHeader: React.FC = () => {
             <Link className="h-full" href={`${EXOTICCA_URL_PREFIX}${EXOTICCA_URL_COUNTRY_SUFFIX}`} target="_blank">
                 <Image className="h-full" src={EXOTICCA_LOGO_URL} display={{ base: isShowSearchbar ? "none" : "block" }} />
             </Link>
-            <HeaderSearchbar isShown={isShowSearchbar} />
+            <HeaderSearchbar isShown={isShowSearchbar} onSearch={onSearch} />
         </Flex>
     );
 };

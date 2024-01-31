@@ -1,3 +1,5 @@
+export const DEFAULT_COUNTRY = "botswana";
+
 export const FeaturedMonoMarketTitle = {
     PREFIX: "Our recommendation to visit"
 };

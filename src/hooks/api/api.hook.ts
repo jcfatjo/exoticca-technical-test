@@ -3,29 +3,19 @@ import { useQuery } from "@tanstack/react-query";
 import { QueryKeys } from "@/hooks/api/api.constants.ts";
 import { type SearchResultModel } from "@/models/search-result.model.ts";
 
-const getSearchResults = async (): Promise<SearchResultModel> => {
-    const response = await fetch("https://api-us.exoticca.com/api/landing/v2/country/peru");
+const fetchSearchResults = async (country: string): Promise<SearchResultModel> => {
+    const response = await fetch(`https://api-us.exoticca.com/api/landing/v2/country/${country}`);
     return await response.json();
 };
 
-export type UseGetSearchResults = () => {
-    searchResult?: SearchResultModel;
-    isLoading: boolean;
-    isError: boolean;
-};
-
-export const useGetSearchResult: UseGetSearchResults = () => {
-    const {
-        data: searchResult,
-        isLoading,
-        isError
-    } = useQuery({
-        queryKey: [QueryKeys.SEARCH_RESULT],
-        queryFn: getSearchResults
+export const useGetSearchResults = (country: string) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: [QueryKeys.SEARCH_RESULT, country],
+        queryFn: async () => await fetchSearchResults(country)
     });
 
     return {
-        searchResult,
+        searchResults: data,
         isLoading,
         isError
     };
