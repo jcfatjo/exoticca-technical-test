@@ -1,3 +1,4 @@
+import { Container } from "@chakra-ui/react";
 import React from "react";
 
 import ProductCard from "@/components/ProductCard";
@@ -8,7 +9,7 @@ const Home: React.FC = () => {
     const { featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts } = useHome();
 
     return (
-        <>
+        <Container maxW={["600px", null, null, "1200px"]} px={[4, 4, 4, 16]}>
             {featuredMonoProducts.map((product: Product, index: number) => (
                 <ProductCard key={`featuredMonoProduct-${index}`} {...product} />
             ))}
@@ -21,7 +22,7 @@ const Home: React.FC = () => {
             {multiProducts.map((product: Product, index: number) => (
                 <ProductCard key={`multiProduct-${index}`} {...product} />
             ))}
-        </>
+        </Container>
     );
 };
 
