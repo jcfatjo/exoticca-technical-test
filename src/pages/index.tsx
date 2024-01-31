@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Spinner } from "@chakra-ui/react";
 import React from "react";
 
 import PageHeader from "@/components/PageHeader";
@@ -7,20 +7,25 @@ import { FeaturedMonoMarketTitle, FeaturedMultiMarketTitle, MonoMarketTitle, Mul
 import { useHome } from "@/pages/Home.ts";
 
 const Home: React.FC = () => {
-    const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts, handleCountrySearch } = useHome();
+    const { placeName, featuredMonoProducts, featuredMultiProducts, monoProducts, multiProducts, isLoading, handleCountrySearch } =
+        useHome();
 
     return (
         <>
             <PageHeader onSearch={handleCountrySearch} />
-            <Container as="main" maxW={{ base: "600px", lg: "1200px" }} px={{ base: 4, lg: 6 }} pt={["60px", null, "70px"]}>
-                <ProductList title={`${FeaturedMonoMarketTitle.PREFIX} ${placeName}`} products={featuredMonoProducts} />
-                <ProductList
-                    title={`${FeaturedMultiMarketTitle.PREFIX} ${placeName} ${FeaturedMultiMarketTitle.SUFFIX}`}
-                    products={featuredMultiProducts}
-                />
-                <ProductList title={`${MonoMarketTitle.PREFIX} ${placeName}`} products={monoProducts} />
-                <ProductList title={`${MultiMarketTitle.PREFIX} ${placeName}`} products={multiProducts} />
-            </Container>
+            {isLoading ? (
+                <Spinner />
+            ) : (
+                <Container as="main" maxW={{ base: "600px", lg: "1200px" }} px={{ base: 4, lg: 6 }} pt={["60px", null, "70px"]}>
+                    <ProductList title={`${FeaturedMonoMarketTitle.PREFIX} ${placeName}`} products={featuredMonoProducts} />
+                    <ProductList
+                        title={`${FeaturedMultiMarketTitle.PREFIX} ${placeName} ${FeaturedMultiMarketTitle.SUFFIX}`}
+                        products={featuredMultiProducts}
+                    />
+                    <ProductList title={`${MonoMarketTitle.PREFIX} ${placeName}`} products={monoProducts} />
+                    <ProductList title={`${MultiMarketTitle.PREFIX} ${placeName}`} products={multiProducts} />
+                </Container>
+            )}
         </>
     );
 };
