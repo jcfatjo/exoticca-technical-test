@@ -3,7 +3,7 @@ import React from "react";
 
 import ProductCard from "@/components/ProductCard";
 import { type ProductListProps } from "@/components/ProductList/ProductList.ts";
-import { type Product } from "@/types/products.types.ts";
+import { type Product } from "@/types/product.types.ts";
 
 const ProductList: React.FC<ProductListProps> = ({ title, products }: ProductListProps) => {
     return (

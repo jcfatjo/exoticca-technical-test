@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useGetSearchResult } from "@/hooks/api/api.hook.ts";
 import { useProducts } from "@/hooks/products.hook.ts";
-import { type Product } from "@/types/products.types.ts";
+import { type Product } from "@/types/product.types.ts";
 
 export const useHome = () => {
     const { searchResult, isLoading, isError } = useGetSearchResult();

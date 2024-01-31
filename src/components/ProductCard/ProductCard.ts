@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { type Product } from "@/types/products.types.ts";
+import { type Product } from "@/types/product.types.ts";
 
 export type ProductCardProps = Product;
 

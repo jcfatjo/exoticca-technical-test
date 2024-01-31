@@ -10,7 +10,7 @@ import {
     type ProductGroups,
     type ProductHighlight,
     type ProductPriceDetail
-} from "@/types/products.types.ts";
+} from "@/types/product.types.ts";
 
 export const useProducts = () => {
     const getProductGroups = (destinations: SearchResultDestination): ProductGroups => {

@@ -4,7 +4,7 @@ import React from "react";
 import PersonIcon from "@/components/Icons/PersonIcon";
 import { GROUP_TOURS_TOOLTIP_LABEL_TEXT, SOLO_TRAVELER_TOOLTIP_LABEL_TEXT } from "@/components/ProductTags/ProductTags.constants.ts";
 import { type ProductTagsProps } from "@/components/ProductTags/ProductTags.ts";
-import { type ProductTag } from "@/types/products.types.ts";
+import { type ProductTag } from "@/types/product.types.ts";
 
 const ProductTags: React.FC<ProductTagsProps> = ({ isGroupTours, isSoloTraveller, tags }: ProductTagsProps) => {
     return (

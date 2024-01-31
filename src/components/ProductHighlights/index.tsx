@@ -4,7 +4,7 @@ import React from "react";
 import LocationIcon from "@/components/Icons/LocationIcon";
 import { MAX_SHOWN_HIGHLIGHTS } from "@/components/ProductHighlights/ProductHighlights.constants.ts";
 import { type ProductHighlightsProps } from "@/components/ProductHighlights/ProductHighlights.ts";
-import { type ProductHighlight } from "@/types/products.types.ts";
+import { type ProductHighlight } from "@/types/product.types.ts";
 
 const ProductHighlights: React.FC<ProductHighlightsProps> = ({ highlights }: ProductHighlightsProps) => {
     return (
