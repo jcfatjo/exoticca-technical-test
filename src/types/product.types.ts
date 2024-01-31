@@ -9,7 +9,20 @@ export type ProductPriceDetail = {
     pricePerNight: string;
 };
 
-export type ProductExtra = "ACCOMMODATION" | "ALL_FLIGHTS" | "ALL_TRANSFERS" | "SOME_MEALS" | "ACTIVITIES";
+export enum ProductExtraType {
+    ACCOMMODATION = "ACCOMMODATION",
+    ALL_FLIGHTS = "ALL_FLIGHTS",
+    ALL_TRANSFERS = "ALL_TRANSFERS",
+    SOME_MEALS = "SOME_MEALS",
+    ACTIVITIES = "ACTIVITIES"
+}
+
+export type ProductExtra =
+    | ProductExtraType.ACCOMMODATION
+    | ProductExtraType.ALL_FLIGHTS
+    | ProductExtraType.ALL_TRANSFERS
+    | ProductExtraType.SOME_MEALS
+    | ProductExtraType.ACTIVITIES;
 
 export type ProductTag = {
     name: string;

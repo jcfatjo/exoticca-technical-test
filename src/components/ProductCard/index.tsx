@@ -3,6 +3,7 @@ import React from "react";
 
 import ProductButton from "@/components/ProductButton";
 import { type ProductCardProps, useProductCard } from "@/components/ProductCard/ProductCard.ts";
+import ProductExtras from "@/components/ProductExtras";
 import ProductHighlights from "@/components/ProductHighlights";
 import ProductTags from "@/components/ProductTags";
 import ProductTop from "@/components/ProductTop";
@@ -17,6 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     image,
     mapImage,
     highlights,
+    extras,
     priceDetail,
     isGroupTours,
     isSoloTraveller,
@@ -50,7 +52,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <GridItem area={"span 1/1/auto/2"}>
                         <ProductHighlights highlights={highlights} />
                     </GridItem>
-                    <GridItem area={"span 1/2/auto/3"}></GridItem>
+                    <GridItem area={"span 1/2/auto/3"}>
+                        <ProductExtras extras={extras} />
+                    </GridItem>
                     <GridItem gridColumn={"1/4"} gridColumnEnd={[null, null, 3]}>
                         <ProductTags isGroupTours={isGroupTours} isSoloTraveller={isSoloTraveller} tags={tags} />
                     </GridItem>

@@ -4,7 +4,7 @@ import { QueryKeys } from "@/hooks/api/api.constants.ts";
 import { type SearchResultModel } from "@/models/search-result.model.ts";
 
 const getSearchResults = async (): Promise<SearchResultModel> => {
-    const response = await fetch("https://api-us.exoticca.com/api/landing/v2/country/botswana");
+    const response = await fetch("https://api-us.exoticca.com/api/landing/v2/country/peru");
     return await response.json();
 };
 
