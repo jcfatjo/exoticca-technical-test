@@ -34,6 +34,8 @@ export type MarketDestination = {
     highlights: DestinationHighlight[];
     includes: string[];
     priceDetail: DestinationPriceDetail;
+    hasPrivateTour: boolean;
+    hasSoloTraveller: boolean;
     tags: DestinationTag[];
 };
 

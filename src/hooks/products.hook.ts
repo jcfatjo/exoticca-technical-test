@@ -36,6 +36,8 @@ export const useProducts = () => {
                 highlights: destinationHighlights,
                 includes,
                 priceDetail: destinationPriceDetail,
+                hasPrivateTour,
+                hasSoloTraveller,
                 tags
             } = marketDestination;
 
@@ -55,6 +57,8 @@ export const useProducts = () => {
                 highlights,
                 priceDetail,
                 extras,
+                isGroupTours: !hasPrivateTour,
+                isSoloTraveller: hasSoloTraveller,
                 tags
             };
         });

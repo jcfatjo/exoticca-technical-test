@@ -10,40 +10,16 @@ const Home: React.FC = () => {
     return (
         <>
             {featuredMonoProducts.map((product: Product, index: number) => (
-                <ProductCard
-                    key={`featuredMonoProduct-${index}`}
-                    title={product.title}
-                    image={product.image}
-                    map={product.mapImage}
-                    priceDetail={product.priceDetail}
-                />
+                <ProductCard key={`featuredMonoProduct-${index}`} {...product} />
             ))}
             {featuredMultiProducts.map((product: Product, index: number) => (
-                <ProductCard
-                    key={`featuredMultiProduct-${index}`}
-                    title={product.title}
-                    image={product.image}
-                    map={product.mapImage}
-                    priceDetail={product.priceDetail}
-                />
+                <ProductCard key={`featuredMultiProduct-${index}`} {...product} />
             ))}
             {monoProducts.map((product: Product, index: number) => (
-                <ProductCard
-                    key={`monoProduct-${index}`}
-                    title={product.title}
-                    image={product.image}
-                    map={product.mapImage}
-                    priceDetail={product.priceDetail}
-                />
+                <ProductCard key={`monoProduct-${index}`} {...product} />
             ))}
             {multiProducts.map((product: Product, index: number) => (
-                <ProductCard
-                    key={`multiProduct-${index}`}
-                    title={product.title}
-                    image={product.image}
-                    map={product.mapImage}
-                    priceDetail={product.priceDetail}
-                />
+                <ProductCard key={`multiProduct-${index}`} {...product} />
             ))}
         </>
     );

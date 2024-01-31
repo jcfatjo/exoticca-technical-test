@@ -27,6 +27,8 @@ export type Product = {
     highlights: ProductHighlight[];
     priceDetail: ProductPriceDetail;
     extras: ProductExtra[];
+    isGroupTours: boolean;
+    isSoloTraveller: boolean;
     tags: ProductTag[];
 };
 

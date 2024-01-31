@@ -1,16 +1,8 @@
 import { useState } from "react";
 
-export type ProductCardProps = {
-    title: string;
-    image: string;
-    map: string;
-    priceDetail: {
-        pricingPercentage: number;
-        oldPrice: string;
-        fromPrice: string;
-        pricePerNight: string;
-    };
-};
+import { type Product } from "@/types/products.types.ts";
+
+export type ProductCardProps = Product;
 
 export const useProductCard = (image: string) => {
     const [imgSrc, setImgSrc] = useState(image);
