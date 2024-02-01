@@ -8,13 +8,14 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "format": "prettier . --write",
-        "commit:lint": "commitlint --edit",
-        "test": "jest",
-        "test:watch": "jest --watch",
+        "test:e2e": "pnpm cypress",
+        "test:unit": "jest",
+        "test:unit:watch": "jest --watch",
         "cypess": "cypress run",
         "cypess:headed": "cypress run --headed --no-exit",
-        "cypress:open": "cypress open"
+        "cypress:open": "cypress open",
+        "format": "prettier . --write",
+        "commit:lint": "commitlint --edit"
     },
     "dependencies": {
         "@chakra-ui/react": "^2.8.2",
