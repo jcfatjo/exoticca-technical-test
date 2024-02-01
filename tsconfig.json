@@ -16,7 +16,7 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        "types": ["node", "@types/jest"],
+        "types": ["node", "@types/jest", "@testing-library/jest-dom"],
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
 
@@ -43,5 +43,5 @@
         "skipLibCheck": true
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./next.config.mjs", "postcss.config.js", "commitlint.config.js"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "./cypress.config.ts"]
 }
