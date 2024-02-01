@@ -1,12 +1,12 @@
 import { useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+import { DEFAULT_COUNTRY, ERROR_TOAST_DURATION_MS } from "@/components/HomeContent/HomeContent.constants.ts";
 import { useGetSearchResults } from "@/hooks/api/api.hook.ts";
 import { useProducts } from "@/hooks/products.hook.ts";
-import { DEFAULT_COUNTRY, ERROR_TOAST_DURATION_MS } from "@/pages/Home.constants.ts";
 import { type Product } from "@/types/product.types.ts";
 
-export const useHome = () => {
+export const useHomeContent = () => {
     const [country, setCountry] = useState(DEFAULT_COUNTRY);
 
     const { data, isLoading, isError } = useGetSearchResults(country);
