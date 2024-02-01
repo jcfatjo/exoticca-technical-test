@@ -1,14 +1,15 @@
+import { useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import { useGetSearchResults } from "@/hooks/api/api.hook.ts";
 import { useProducts } from "@/hooks/products.hook.ts";
-import { DEFAULT_COUNTRY } from "@/pages/Home.constants.ts";
+import { DEFAULT_COUNTRY, ERROR_TOAST_DURATION_MS } from "@/pages/Home.constants.ts";
 import { type Product } from "@/types/product.types.ts";
 
 export const useHome = () => {
     const [country, setCountry] = useState(DEFAULT_COUNTRY);
 
-    const { searchResults, isLoading, isError } = useGetSearchResults(country);
+    const { data, isLoading, isError } = useGetSearchResults(country);
     const { getProductGroups } = useProducts();
 
     const [placeName, setPlaceName] = useState("");
@@ -17,12 +18,14 @@ export const useHome = () => {
     const [monoProducts, setMonoProducts] = useState<Product[]>([]);
     const [multiProducts, setMultiProducts] = useState<Product[]>([]);
 
+    const toast = useToast();
+
     useEffect(() => {
-        if (!searchResults) {
+        if (!data?.name) {
             return;
         }
 
-        const { name, destinations } = searchResults;
+        const { name, destinations } = data;
         const { featuredMono, featuredMulti, mono, multi } = getProductGroups(destinations);
 
         setPlaceName(name);
@@ -30,11 +33,23 @@ export const useHome = () => {
         setFeaturedMultiProducts(featuredMulti);
         setMonoProducts(mono);
         setMultiProducts(multi);
-    }, [searchResults]);
+    }, [data]);
 
     const handleCountrySearch = (searchText: string) => {
         setCountry(searchText);
     };
+
+    useEffect(() => {
+        if (isError) {
+            toast({
+                title: "An error has occurred",
+                description: `Unable to get data by "${country}"`,
+                status: "error",
+                duration: ERROR_TOAST_DURATION_MS,
+                isClosable: true
+            });
+        }
+    }, [isError]);
 
     return {
         placeName,
@@ -43,7 +58,6 @@ export const useHome = () => {
         monoProducts,
         multiProducts,
         isLoading,
-        isError,
         handleCountrySearch
     };
 };

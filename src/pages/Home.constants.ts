@@ -1,5 +1,7 @@
 export const DEFAULT_COUNTRY = "botswana";
 
+export const ERROR_TOAST_DURATION_MS = 5000;
+
 export const FeaturedMonoMarketTitle = {
     PREFIX: "Our recommendation to visit"
 };
