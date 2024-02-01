@@ -24,11 +24,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-NOTE: You need a to have a CORS plugin installed on your browser to be able to make requests to the API.
+NOTE: You need to have a CORS plugin installed on your browser to be able to make requests to the API.
 
 ## Launching e2e tests
 
-You need to have launched the development server. Then, you can run the e2e tests with:
+You can run the e2e tests with:
 
 ```bash
 pnpm test:e2e
