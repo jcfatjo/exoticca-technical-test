@@ -8,31 +8,32 @@ import {
     getProductTags,
     getProductTitle,
     getProductTitleLink,
+    getSearchbar,
     getSeeTripButton,
-    getTagLabel
+    getTagLabel,
+    searchText
 } from "./test.utils.ts";
 
 describe("Test cases", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000");
-
         getHeaderLogo().should("be.visible");
     });
 
-    it("Loads default data correctly", () => {
+    it('Loads default "Botswana" data correctly', () => {
         const TAGS = ["Group tours", "Solo traveller", "Multi-Country", "Spring"];
 
         getProductCards().should("have.length", 4);
-
-        getProductDestination(1).should("have.text", "Zimbabwe, Botswana, South Africa & Namibia in 25 days +");
-        getProductTitle(2).should("have.text", "Waterfalls, Wild Chobe & Okavango Safari");
-        getProductPrice(3).should("have.text", "$5,599");
 
         getProductTags(0).should("have.length", 4);
 
         [...Array(4).keys()].forEach((index: number) => {
             getTagLabel(0, index).should("have.text", TAGS[index]);
         });
+
+        getProductDestination(1).should("have.text", "Zimbabwe, Botswana, South Africa & Namibia in 25 days +");
+        getProductTitle(2).should("have.text", "Waterfalls, Wild Chobe & Okavango Safari");
+        getProductPrice(3).should("have.text", "$5,599");
     });
 
     it("Loads the Exoticca page when clicking the header logo", () => {
@@ -85,5 +86,28 @@ describe("Test cases", () => {
         cy.wait("@productPage").then(interception => {
             assert.isTrue(interception.response?.statusCode === 200);
         });
+    });
+
+    it("Shows the searchbar on scroll down", () => {
+        cy.scrollTo("bottom");
+        getSearchbar().should("be.visible");
+    });
+
+    it('Loads "Peru" data when searching for "peru"', () => {
+        cy.scrollTo("bottom");
+        searchText("peru");
+
+        getProductCards().should("have.length", 16);
+
+        getProductDestination(0).should("have.text", "Peru in 9 days +");
+        getProductTitle(1).should("have.text", "Incas, Amazon and Galapagos");
+        getProductPrice(2).should("have.text", "$1,399");
+    });
+
+    it('Fails loading data when searching for "asd" (invalid) text', () => {
+        cy.scrollTo("bottom");
+        searchText("asd");
+
+        cy.contains("An error has occurred", { timeout: 30000 }).should("be.visible");
     });
 });

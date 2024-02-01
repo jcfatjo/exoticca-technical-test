@@ -45,3 +45,12 @@ export const getProductTitleLink = (productIndex: number) => {
 export const getProductPriceLink = (productIndex: number) => {
     return getProductCard(productIndex).find('[data-cy="product-price-link"]').invoke("removeAttr", "target");
 };
+
+export const getSearchbar = () => {
+    return cy.get('[data-cy="searchbar"]');
+};
+
+export const searchText = (text: string) => {
+    cy.get('[data-cy="searchbar-input"]').type(text);
+    cy.get('[data-cy="searchbar-button"]').click();
+};

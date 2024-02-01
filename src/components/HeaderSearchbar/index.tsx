@@ -8,11 +8,12 @@ const HeaderSearchbar: React.FC<HeaderSearchbarProps> = ({ isShown, onSearch }: 
     const { searchText, handleSearchTextChange, handleKeyDown, handleSearch } = useHeaderSearchbar(onSearch);
 
     return (
-        <InputGroup className="max-w-full w-[400px]" display={{ base: isShown ? "block" : "none" }}>
+        <InputGroup data-cy="searchbar" className="max-w-full w-[400px]" display={{ base: isShown ? "block" : "none" }}>
             <InputLeftElement className="text-2xl">
                 <SearchIcon />
             </InputLeftElement>
             <Input
+                data-cy="searchbar-input"
                 className="rounded-full pr-32 bg-white"
                 placeholder="Search your next destination"
                 value={searchText}
@@ -21,6 +22,7 @@ const HeaderSearchbar: React.FC<HeaderSearchbarProps> = ({ isShown, onSearch }: 
             />
             <InputRightElement className="w-[120px]">
                 <Button
+                    data-cy="searchbar-button"
                     className="rounded-full h-7 w-[100px] bg-black hover:bg-gray-800 active:bg-gray-600 text-white font-normal"
                     size="sm"
                     onClick={handleSearch}>
