@@ -9,7 +9,7 @@
         "start": "next start",
         "lint": "next lint",
         "test:e2e": "concurrently -ks first -n \"WEB,E2E\" -c \"blue,magenta\" \"pnpm dev\" \"pnpm wait:webapp && pnpm cypress\"",
-        "test:e2e:header": "concurrently -ks first -n \"WEB,E2E\" -c \"blue,magenta\" \"pnpm dev\" \"pnpm wait:webapp && pnpm cypress:headed\"",
+        "test:e2e:headed": "concurrently -ks first -n \"WEB,E2E\" -c \"blue,magenta\" \"pnpm dev\" \"pnpm wait:webapp && pnpm cypress:headed\"",
         "test:unit": "jest",
         "test:unit:watch": "jest --watch",
         "cypress": "cypress run",

@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { QueryKeys } from "@/hooks/api/api.constants.ts";
 import { type SearchResultModel } from "@/models/search-result.model.ts";
 
-const fetchSearchResults = async (country: string): Promise<SearchResultModel> => {
-    const response = await fetch(`https://api-us.exoticca.com/api/landing/v2/country/${country}`);
+const fetchSearchResult = async (country: string): Promise<SearchResultModel> => {
+    const response = await fetch(`/api/search-handler?country=${country}`);
 
     if (!response.ok) {
-        const errorMessage = "An error occurred while fetching the search results.";
+        const errorMessage = "An error occurred while fetching the search result.";
         console.error(errorMessage);
         throw new Error(errorMessage);
     }
@@ -15,10 +15,10 @@ const fetchSearchResults = async (country: string): Promise<SearchResultModel> =
     return await response.json();
 };
 
-export const useGetSearchResults = (country: string) => {
+export const useGetSearchResult = (country: string) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: [QueryKeys.SEARCH_RESULT, country],
-        queryFn: async () => await fetchSearchResults(country),
+        queryFn: async () => await fetchSearchResult(country),
         refetchOnWindowFocus: false
     });
 
