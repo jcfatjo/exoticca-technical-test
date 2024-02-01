@@ -23,8 +23,8 @@ const ProductPriceDetail: React.FC<ProductPriceDetailProps> = ({
                 <Text className="text-xs font-normal text-gray-500">
                     From <del>{oldPrice}</del>
                 </Text>
-                <Link href={`${EXOTICCA_URL_PREFIX}${url}`} target="_blank">
-                    <Text className="font-bold leading-6" fontSize={["large", null, "x-large"]}>
+                <Link data-cy="product-price-link" href={`${EXOTICCA_URL_PREFIX}${url}`} target="_blank">
+                    <Text data-cy="product-price" className="font-bold leading-6" fontSize={["large", null, "x-large"]}>
                         {fromPrice}
                     </Text>
                 </Link>

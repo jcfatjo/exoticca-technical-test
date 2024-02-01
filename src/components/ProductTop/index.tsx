@@ -8,11 +8,13 @@ import { type ProductTopProps } from "@/components/ProductTop/ProductTop.ts";
 const ProductTop: React.FC<ProductTopProps> = ({ destination, days, title, url }: ProductTopProps) => {
     return (
         <>
-            <Text>
+            <Text data-cy="product-destination">
                 {destination} in {days} days +
             </Text>
-            <Link href={`${EXOTICCA_URL_PREFIX}${url}`} target="_blank">
-                <Text className="text-xl hover:underline">{title}</Text>
+            <Link data-cy="product-title-link" href={`${EXOTICCA_URL_PREFIX}${url}`} target="_blank">
+                <Text data-cy="product-title" className="text-xl hover:underline">
+                    {title}
+                </Text>
             </Link>
         </>
     );

@@ -12,6 +12,8 @@
         "commit:lint": "commitlint --edit",
         "test": "jest",
         "test:watch": "jest --watch",
+        "cypess": "cypress run",
+        "cypess:headed": "cypress run --headed --no-exit",
         "cypress:open": "cypress open"
     },
     "dependencies": {
